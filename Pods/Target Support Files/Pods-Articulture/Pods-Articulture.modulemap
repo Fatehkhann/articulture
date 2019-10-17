@@ -1,0 +1,6 @@
+framework module Pods_Articulture {
+  umbrella header "Pods-Articulture-umbrella.h"
+
+  export *
+  module * { export * }
+}

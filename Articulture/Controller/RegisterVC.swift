@@ -42,7 +42,7 @@ class RegisterVC: UIViewController {
                 return
             }
             self?.activityIndicator.stopAnimating()
-            print(authResult?.user)
+            self?.dismiss(animated: true, completion: nil)
         }
     }
     

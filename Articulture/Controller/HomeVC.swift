@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class HomeVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,11 +16,14 @@ class ViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        presentLoginController()
+    }
+    
+    fileprivate func presentLoginController() {
         let storyboard = UIStoryboard(name: Storyboard.LoginStoryboard, bundle: nil)
         let viewController = storyboard.instantiateViewController(withIdentifier: StoryboardID.LoginVC)
         present(viewController, animated: true)
     }
-
 
 }
 

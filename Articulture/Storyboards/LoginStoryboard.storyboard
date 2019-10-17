@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Login View Controller-->
+        <!--LoginVC-->
         <scene sceneID="sTm-oU-BtV">
             <objects>
-                <viewController storyboardIdentifier="Login" id="7mL-VE-mHS" customClass="LoginViewController" customModule="Articulture" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Login" id="7mL-VE-mHS" customClass="LoginVC" customModule="Articulture" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="IuN-rQ-Epp">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -46,7 +46,7 @@
                                         </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mi2-vz-knZ">
                                         <rect key="frame" x="0.0" y="138.5" width="374" height="31"/>
@@ -54,6 +54,9 @@
                                         <state key="normal" title="Forgot password?">
                                             <color key="titleColor" red="0.83529411764705885" green="0.37647058823529411" blue="0.31372549019607843" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="forgotPwClicked:" destination="7mL-VE-mHS" eventType="touchUpInside" id="0Qe-0u-xSb"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cgH-TJ-tMe" customClass="RoundedButton" customModule="Articulture" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="181.5" width="374" height="40"/>
@@ -65,6 +68,9 @@
                                         <state key="normal" title="Login">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="loginButtonClicked:" destination="7mL-VE-mHS" eventType="touchUpInside" id="IHZ-M8-tcX"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mug-RR-Cpj" customClass="RoundedButton" customModule="Articulture" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="233.5" width="374" height="40"/>
@@ -90,6 +96,9 @@
                                         <state key="normal" title="Continue as guest">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="asGuestClicked:" destination="7mL-VE-mHS" eventType="touchUpInside" id="tZm-kE-JG0"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -113,6 +122,11 @@
                         <viewLayoutGuide key="safeArea" id="7BS-hT-pld"/>
                     </view>
                     <navigationItem key="navigationItem" id="4tj-vp-2Lu"/>
+                    <connections>
+                        <outlet property="activictyIndicator" destination="ieJ-DM-msK" id="SNk-s2-V27"/>
+                        <outlet property="emailTF" destination="nS9-fc-5Sa" id="TPX-G1-fVN"/>
+                        <outlet property="passwordTF" destination="bpB-8j-8VZ" id="NpX-qJ-kEl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wYW-wS-dwQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

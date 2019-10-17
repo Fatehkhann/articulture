@@ -1,7 +1,9 @@
 # Xcode
 #
 # gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
-
+#Firebase Keys 
+/Articulture/GoogleService-Info.plist
+/ArticultureAdmin/GoogleService-Info.plist
 ## Build generated
 build/
 DerivedData/

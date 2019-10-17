@@ -15,6 +15,8 @@ struct Storyboard {
 
 struct StoryboardID {
     static let LoginVC = "LoginVC"
+    static let MainVC = "MainVC"
+    
 }
 
 struct AppImages {

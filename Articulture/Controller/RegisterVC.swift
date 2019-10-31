@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseFirestore
 
 class RegisterVC: UIViewController {
 
@@ -33,16 +34,56 @@ class RegisterVC: UIViewController {
         guard let email = emailTF.text, email.isNotEmpty,
         let username = usernameTF.text, username.isNotEmpty,
         let password = passwordTF.text, password.isNotEmpty else {
+            simpleAlert(title: "Error", msg: "Please fill out all fields")
+            return
+        }
+        guard let confirmPass = confirmPasswordTF.text, confirmPass == password else {
+            simpleAlert(title: "Error", msg: "Passwords should match!")
             return
         }
         activityIndicator.startAnimating()
-        Auth.auth().createUser(withEmail: email, password: password) { [weak self] authResult, error in
+        
+//        Auth.auth().createUser(withEmail: email, password: password) { (result, error) in
+//            if let error = error {
+//                debugPrint(error.localizedDescription)
+//                Auth.auth().handleFireAuthError(error: error, vc: self)
+//                return
+//            }
+//
+//            guard let firUser = result?.user else { return }
+//            let artUser = User.init(id: firUser.uid, email: email, username: username, stripeId: "")
+//            self.createFirestoreUser(user: artUser)
+//        }
+        
+        guard let authUser = Auth.auth().currentUser else { return}
+
+        let credentials = EmailAuthProvider.credential(withEmail: email, password: password)
+
+        authUser.link(with: credentials) { (authResult, error) in
             if let error = error {
                 print(error.localizedDescription)
+                self.activityIndicator.stopAnimating()
+                Auth.auth().handleFireAuthError(error: error, vc: self)
                 return
             }
-            self?.activityIndicator.stopAnimating()
-            self?.dismiss(animated: true, completion: nil)
+            guard let firUser = authResult?.user else { return }
+            let artUser = User.init(id: firUser.uid, email: email, username: username, stripeId: "")
+            self.createFirestoreUser(user: artUser)
+        }
+    }
+    
+    func createFirestoreUser(user: User) {
+        let userRef = Firestore.firestore().collection("users").document(user.id)
+        let userData = User.modelToData(user: user)
+        userRef.setData(userData) { (error) in
+            if let error = error {
+                debugPrint(error.localizedDescription)
+                Auth.auth().handleFireAuthError(error: error, vc: self)
+                return
+            } else {
+                self.activityIndicator.stopAnimating()
+                self.dismiss(animated: true, completion: nil)
+            }
         }
     }
     

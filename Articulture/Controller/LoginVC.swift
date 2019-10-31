@@ -23,24 +23,28 @@ class LoginVC: UIViewController {
     @IBAction func loginButtonClicked(_ sender: Any) {
         guard let email = emailTF.text, email.isNotEmpty,
         let password = passwordTF.text, password.isNotEmpty else {
+            simpleAlert(title: "Error", msg: "Please fill out all fields")
             return
         }
         activictyIndicator.startAnimating()
-        Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
+        Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
             if let error = error {
                 debugPrint(error.localizedDescription)
-                self?.activictyIndicator.stopAnimating()
+                Auth.auth().handleFireAuthError(error: error, vc: self)
+                self.activictyIndicator.stopAnimating()
                 return
             } else {
-                self?.activictyIndicator.stopAnimating()
-                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                let viewController = storyboard.instantiateViewController(withIdentifier: StoryboardID.MainVC)
-                self?.present(viewController, animated: true)
+                self.activictyIndicator.stopAnimating()
+                self.dismiss(animated: true, completion: nil)
             }
         }
     }
     
     @IBAction func forgotPwClicked(_ sender: Any) {
+        let newViewController = ForgotPasswordVC()
+        newViewController.modalPresentationStyle = .overCurrentContext
+        newViewController.modalTransitionStyle = .crossDissolve
+        present(newViewController, animated: true)
     }
     
     @IBAction func asGuestClicked(_ sender: Any) {

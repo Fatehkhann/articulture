@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CartItemCell" rowHeight="118" id="KGk-i7-Jjw" customClass="CartItemCell" customModule="Articulture" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="62"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="61.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HKp-5j-S6X" customClass="RoundedShadowView" customModule="Articulture" customModuleProvider="target">
+                        <rect key="frame" x="1" y="1" width="318" height="59.5"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="aerial_1" translatesAutoresizingMaskIntoConstraints="NO" id="XCQ-Ac-p7R" customClass="RoundedImageView" customModule="Articulture" customModuleProvider="target">
+                                <rect key="frame" x="8" y="0.0" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="LBB-Ud-20R"/>
+                                    <constraint firstAttribute="width" constant="60" id="Rd3-zc-eaB"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="45R-GI-5h3">
+                                <rect key="frame" x="76" y="18.5" width="221" height="23"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="221" id="WOS-8R-hrn"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                <color key="textColor" red="0.2274509804" green="0.2666666667" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rdU-ZS-WrI">
+                                <rect key="frame" x="282" y="16" width="28" height="28"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="O4L-CL-4Ig"/>
+                                    <constraint firstAttribute="width" constant="28" id="lnQ-WS-zfW"/>
+                                </constraints>
+                                <state key="normal" image="red_trash"/>
+                                <connections>
+                                    <action selector="deleteButtonTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="wma-DR-FUS"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="XCQ-Ac-p7R" firstAttribute="centerY" secondItem="HKp-5j-S6X" secondAttribute="centerY" id="4QF-Cg-ujf"/>
+                            <constraint firstAttribute="trailing" secondItem="rdU-ZS-WrI" secondAttribute="trailing" constant="8" id="HTr-HS-FjM"/>
+                            <constraint firstItem="rdU-ZS-WrI" firstAttribute="centerY" secondItem="HKp-5j-S6X" secondAttribute="centerY" id="chL-rj-btI"/>
+                            <constraint firstItem="XCQ-Ac-p7R" firstAttribute="leading" secondItem="HKp-5j-S6X" secondAttribute="leading" constant="8" id="eSc-K1-1Jt"/>
+                            <constraint firstItem="45R-GI-5h3" firstAttribute="centerY" secondItem="HKp-5j-S6X" secondAttribute="centerY" id="ffN-8n-JB1"/>
+                            <constraint firstItem="45R-GI-5h3" firstAttribute="leading" secondItem="XCQ-Ac-p7R" secondAttribute="trailing" constant="8" id="xA1-b3-NJ1"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="HKp-5j-S6X" secondAttribute="trailing" constant="1" id="Shw-1w-GNU"/>
+                    <constraint firstAttribute="bottom" secondItem="HKp-5j-S6X" secondAttribute="bottom" constant="1" id="cb9-gD-QkY"/>
+                    <constraint firstItem="HKp-5j-S6X" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="1" id="dfu-lG-k6j"/>
+                    <constraint firstItem="HKp-5j-S6X" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="1" id="rog-3m-eFV"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="productImage" destination="XCQ-Ac-p7R" id="Drb-T4-ECH"/>
+                <outlet property="productLabel" destination="45R-GI-5h3" id="Kfg-mP-Kca"/>
+                <outlet property="trashButton" destination="rdU-ZS-WrI" id="ltK-Aa-dqy"/>
+            </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="115.84821428571428"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="aerial_1" width="1000" height="1333"/>
+        <image name="red_trash" width="28" height="30"/>
+    </resources>
+</document>
